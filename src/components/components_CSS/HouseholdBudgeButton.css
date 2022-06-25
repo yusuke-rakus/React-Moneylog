@@ -1,0 +1,19 @@
+.HouseholdBudgetButton-show-enter {
+  transform: translateX(100%);
+}
+
+.HouseholdBudgetButton-show-enter-active {
+  transform: translateX(0);
+  transition: 200ms, 200ms;
+}
+
+.HouseholdBudgetButton-show-exit-active {
+  transform: translateX(100%);
+  transition: 200ms, 200ms;
+}
+
+.HouseholdBudgetButton {
+  position: relative;
+  overflow: hidden;
+  background-color: red;
+}
