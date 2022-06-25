@@ -10,6 +10,8 @@ import {
   TextField,
 } from "@mui/material";
 import "./components_CSS/ModalBox.css";
+import SwitchBalanceButton from "./SwitchBalanceButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 const ModalBox = (props) => {
   const { ModalWindow, setModalWindow } = props;
@@ -22,6 +24,11 @@ const ModalBox = (props) => {
   return (
     <>
       <div className="modal-window">
+        <CloseIcon
+          onClick={() => setModalWindow(false)}
+          style={{ cursor: "pointer", color: "#a9a9a9" }}
+          className="close-button"
+        />
         <h3 className="modal-title">支出または収入の入力</h3>
 
         {/* 日付入力 */}
@@ -70,14 +77,17 @@ const ModalBox = (props) => {
 
         {/* 金額入力 */}
         <div className="input-amount-box">
-          <span className="input-span">金額</span>
-          <div className="input-amount">
-            <TextField
-              id="standard-basic"
-              variant="standard"
-              fullWidth={true}
-            />
-            <span className="input-span">円</span>
+          <SwitchBalanceButton />
+          <div className="amount-group">
+            <span className="input-span">金額</span>
+            <div className="input-amount">
+              <TextField
+                id="standard-basic"
+                variant="standard"
+                fullWidth={true}
+              />
+              <span className="input-span">円</span>
+            </div>
           </div>
         </div>
 

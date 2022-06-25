@@ -22,16 +22,24 @@ span {
   display: relative;
 }
 
+.close-button {
+  position: absolute;
+  display: block;
+  right: 15px;
+  top: 15px;
+}
+
 .input-span {
   display: block;
   text-align: left;
+  font-size: 12px;
 }
 
 /* 日付 */
 .input-date-box {
   width: 80%;
   min-width: 350px;
-  margin: 15px auto;
+  margin: 20px auto;
 }
 
 .date-group {
@@ -41,9 +49,10 @@ span {
 
 /* 金額 */
 .input-amount-box {
-  width: 60%;
-  max-width: 150px;
-  margin: 15px auto;
+  display: flex;
+  width: 80%;
+  max-width: 250px;
+  margin: 20px auto;
 }
 
 .input-amount {
@@ -51,11 +60,15 @@ span {
   display: flex;
 }
 
+.amount-group {
+  margin-left: 20px;
+}
+
 /* 取引名 */
 .input-transaction-box {
   width: 80%;
   max-width: 250px;
-  margin: 15px auto;
+  margin: 20px auto;
 }
 
 /* カテゴリ */
@@ -68,15 +81,16 @@ span {
 .input-category-box {
   width: 80%;
   max-width: 250px;
-  margin: 15px auto;
+  margin: 20px auto;
 }
 
 .category-box:hover {
   background-color: #e9e8e859;
+  border-radius: 5px;
+  transition: 0.25s;
 }
 
 .category-box:hover span {
-  transition: 0.25s;
   transform: translateX(10px);
 }
 
@@ -84,6 +98,7 @@ span {
   display: inline-block;
   padding-right: 15px;
   font-size: 20px;
+  transition: 0.25s;
 }
 
 /* 固定費チェック */
