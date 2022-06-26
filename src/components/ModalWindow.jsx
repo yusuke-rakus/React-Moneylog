@@ -10,9 +10,7 @@ const ModalWindow = () => {
   return (
     <>
       <Button
-        onClick={() => {
-          setModalWindow(true);
-        }}
+        onClick={() => setModalWindow(true)}
         variant="contained"
         className="sampleButton"
       >
@@ -29,7 +27,7 @@ const ModalWindow = () => {
       )}
       <CSSTransition
         in={ModalWindow}
-        timeout={100}
+        timeout={200}
         unmountOnExit
         classNames="Modal-show"
       >
