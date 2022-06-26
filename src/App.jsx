@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar";
 import HouseholdBudgetButton from "./components/HouseholdBudgetButton";
 import ModalWindow from "./components/ModalWindow";
 import SwitchBalanceButton from "./components/SwitchBalanceButton";
+import CategoryWindow from "./components/CategoryWindow";
 
 const App = () => {
   return (
@@ -11,7 +12,7 @@ const App = () => {
       <Sidebar />
       <div className="homeArea">
         {/* <HouseholdBudgetButton BoxText={"追加"} /> */}
-        {/* <ModalWindow /> */}
+        <ModalWindow />
       </div>
     </>
   );

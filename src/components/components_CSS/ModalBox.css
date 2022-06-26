@@ -76,6 +76,7 @@ span {
   border-bottom: solid 1.5px #a9a9a9;
   text-align: right;
   transition: background-color 0.25s;
+  cursor: pointer;
 }
 
 .input-category-box {

@@ -9,23 +9,35 @@ import {
   Checkbox,
   TextField,
 } from "@mui/material";
+import { CSSTransition } from "react-transition-group";
 import "./components_CSS/ModalBox.css";
+import "./components_CSS/CategoryWindow.css";
 import SwitchBalanceButton from "./SwitchBalanceButton";
+import CategoryWindow from "./CategoryWindow";
 import CloseIcon from "@mui/icons-material/Close";
 
 const ModalBox = (props) => {
   const { ModalWindow, setModalWindow } = props;
-  const [date, setDate] = useState({ year: "", month: "", day: "" });
+  const [CategoryWindowModal, setCategoryWindowModal] = useState(false);
 
+  const [date, setDate] = useState({ year: "", month: "", day: "" });
   const setYear = (event) => setDate({ ...date, year: event.target.value });
   const setMonth = (event) => setDate({ ...date, month: event.target.value });
   const setDay = (event) => setDate({ ...date, day: event.target.value });
+
+  const openCategoryWindow = () => {
+    setCategoryWindowModal(true);
+  };
+
+  const closeModalWindow = () => {
+    setModalWindow(false);
+  };
 
   return (
     <>
       <div className="modal-window">
         <CloseIcon
-          onClick={() => setModalWindow(false)}
+          onClick={closeModalWindow}
           style={{ cursor: "pointer", color: "#a9a9a9" }}
           className="close-button"
         />
@@ -104,7 +116,7 @@ const ModalBox = (props) => {
         </div>
 
         {/* カテゴリ入力 */}
-        <div className="input-category-box">
+        <div onClick={openCategoryWindow} className="input-category-box">
           <span className="input-span category-span">カテゴリ</span>
           <div className="category-box">
             <span>&gt;</span>
@@ -121,16 +133,23 @@ const ModalBox = (props) => {
         </FormGroup>
 
         {/* 登録ボタン */}
-        <Button
-          onClick={() => {
-            setModalWindow(false);
-          }}
-          variant="contained"
-          className="sampleButton"
-        >
+        <Button onClick={closeModalWindow} variant="contained">
           登録
         </Button>
       </div>
+
+      <CSSTransition
+        in={CategoryWindowModal}
+        timeout={300}
+        unmountOnExit
+        classNames="Category-show"
+      >
+        <CategoryWindow
+          CategoryWindowModal={CategoryWindowModal}
+          setCategoryWindowModal={setCategoryWindowModal}
+          closeModalWindow={closeModalWindow}
+        />
+      </CSSTransition>
     </>
   );
 };
