@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Button,
   FormControl,
@@ -18,19 +18,26 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const ModalBox = (props) => {
   const { ModalWindow, setModalWindow } = props;
-  const [CategoryWindowModal, setCategoryWindowModal] = useState(false);
 
   const [date, setDate] = useState({ year: "", month: "", day: "" });
   const setYear = (event) => setDate({ ...date, year: event.target.value });
   const setMonth = (event) => setDate({ ...date, month: event.target.value });
   const setDay = (event) => setDate({ ...date, day: event.target.value });
 
+  const [CategoryWindowModal, setCategoryWindowModal] = useState(false);
   const openCategoryWindow = () => {
     setCategoryWindowModal(true);
   };
 
   const closeModalWindow = () => {
     setModalWindow(false);
+  };
+
+  const [amount, setAmount] = useState("");
+  const changeAmount = (e) => {
+    let tempNum = String(e.target.value).replace(/,/g, "");
+    console.log(tempNum);
+    setAmount(Number(tempNum).toLocaleString());
   };
 
   return (
@@ -97,6 +104,11 @@ const ModalBox = (props) => {
                 id="standard-basic"
                 variant="standard"
                 fullWidth={true}
+                inputProps={{
+                  style: { textAlign: "right", paddingRight: "5px" },
+                }}
+                value={amount}
+                onChange={changeAmount}
               />
               <span className="input-span">円</span>
             </div>
@@ -116,9 +128,9 @@ const ModalBox = (props) => {
         </div>
 
         {/* カテゴリ入力 */}
-        <div onClick={openCategoryWindow} className="input-category-box">
+        <div className="input-category-box">
           <span className="input-span category-span">カテゴリ</span>
-          <div className="category-box">
+          <div onClick={openCategoryWindow} className="category-box">
             <span>&gt;</span>
           </div>
         </div>

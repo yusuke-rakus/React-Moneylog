@@ -4,7 +4,6 @@
 
 .switch {
   display: flex;
-
   height: 35px;
   width: 90px;
   background-color: #eeeeee;
@@ -19,6 +18,7 @@
   align-items: center;
   color: #a9a9a9;
   transition: all 0.25s 0s ease;
+  cursor: pointer;
 }
 
 .switch-circle {
@@ -29,6 +29,7 @@
   position: relative;
   transition: all 0.25s 0s ease;
   z-index: 2;
+  cursor: pointer;
 }
 
 .icon {

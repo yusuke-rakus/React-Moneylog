@@ -5,7 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import ModalBox from "./ModalBox";
 
 const ModalWindow = () => {
-  const [ModalWindow, setModalWindow] = useState(true);
+  const [ModalWindow, setModalWindow] = useState(false);
 
   return (
     <>
