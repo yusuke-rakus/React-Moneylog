@@ -53,6 +53,7 @@ span {
   width: 80%;
   max-width: 250px;
   margin: 20px auto;
+  align-items: center;
 }
 
 .input-amount {
@@ -61,7 +62,7 @@ span {
 }
 
 .amount-group {
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 /* 取引名 */
