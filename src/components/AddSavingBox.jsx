@@ -12,19 +12,31 @@ import {
 const AddSavingBox = (props) => {
   const { setAddSavingStatus } = props;
 
+  // 日付処理
   const [date, setDate] = useState({ year: "", month: "", day: "" });
-  const setYear = (event) => setDate({ ...date, year: event.target.value });
-  const setMonth = (event) => setDate({ ...date, month: event.target.value });
-  const setDay = (event) => setDate({ ...date, day: event.target.value });
+  const setYear = (e) => setDate({ ...date, year: e.target.value });
+  const setMonth = (e) => setDate({ ...date, month: e.target.value });
+  const setDay = (e) => setDate({ ...date, day: e.target.value });
 
+  // 振り分け処理
+  const [distribution, setDistribution] = useState("");
+  const distributionList = ["M2 MacBookAir", "沖縄旅行"];
+  const changeDistribution = (e) => {
+    setDistribution(e.target.value);
+  };
+
+  // 閉じる処理
   const closeAddSavingWindow = () => {
     setAddSavingStatus(false);
   };
 
+  // 金額表示処理
   const [amount, setAmount] = useState("");
   const changeAmount = (e) => {
     let tempNum = String(e.target.value).replace(/,/g, "");
-    console.log(tempNum);
+    if (isNaN(tempNum)) {
+      return;
+    }
     setAmount(Number(tempNum).toLocaleString());
   };
 
@@ -44,11 +56,9 @@ const AddSavingBox = (props) => {
           <div className="date-group">
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
                 value={date.year}
                 onChange={setYear}
-                defaultValue={2020}
+                defaultValue={date.year}
               >
                 <MenuItem value={2020}>2020</MenuItem>
                 <MenuItem value={2021}>2021</MenuItem>
@@ -56,24 +66,14 @@ const AddSavingBox = (props) => {
             </FormControl>
             <span>年</span>
             <FormControl sx={{ m: 1, minWidth: 60 }} size="small">
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={date.month}
-                onChange={setMonth}
-              >
+              <Select value={date.month} onChange={setMonth}>
                 <MenuItem value={6}>6</MenuItem>
                 <MenuItem value={7}>7</MenuItem>
               </Select>
             </FormControl>
             <span>月</span>
             <FormControl sx={{ m: 1, minWidth: 60 }} size="small">
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={date.day}
-                onChange={setDay}
-              >
+              <Select value={date.day} onChange={setDay}>
                 <MenuItem value={25}>25</MenuItem>
                 <MenuItem value={26}>26</MenuItem>
               </Select>
@@ -104,6 +104,22 @@ const AddSavingBox = (props) => {
             />
             <span className="input-span">円</span>
           </div>
+        </div>
+
+        {/* 振り分け選択 */}
+        <div className="distribution-group">
+          <span className="input-span">振り分ける</span>
+          <FormControl size="small" sx={{ mt: "3px", minWidth: "250px" }}>
+            <Select value={distribution} onChange={changeDistribution}>
+              {distributionList.map((distributionItem, index) => {
+                return (
+                  <MenuItem value={distributionItem} key={index}>
+                    {distributionItem}
+                  </MenuItem>
+                );
+              })}
+            </Select>
+          </FormControl>
         </div>
 
         {/* 登録ボタン */}

@@ -39,12 +39,20 @@
 
 /* 貯金額 */
 .amount-group {
+  padding: 0;
   width: 80%;
   max-width: 250px;
   margin: 20px auto;
 }
 
 .saving-amount {
-  align-items: flex-end;
   display: flex;
+  align-items: flex-end;
+}
+
+/* 振り分け選択 */
+.distribution-group {
+  width: 80%;
+  max-width: 250px;
+  margin: 20px auto;
 }
