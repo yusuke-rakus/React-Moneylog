@@ -8,6 +8,7 @@ import CategoryWindow from "./components/CategoryWindow";
 import AddSavingWindow from "./components/AddSavingWindow";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import BlurView from "./components/BlurView";
+import AddTargetWindow from "./components/AddTargetWindow";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         {/* <ModalWindow /> */}
         {/* <AddSavingWindow /> */}
         {/* <BlurView status={true} /> */}
+        <AddTargetWindow />
       </div>
     </>
   );
