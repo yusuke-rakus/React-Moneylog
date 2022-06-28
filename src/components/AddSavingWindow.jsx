@@ -3,6 +3,7 @@ import "./components_CSS/AddSavingWindow.css";
 import AddSavingBox from "./AddSavingBox";
 import { Button } from "@mui/material";
 import { CSSTransition } from "react-transition-group";
+import BlurView from "./BlurView";
 
 const AddSavingWindow = () => {
   const [AddSavingStatus, setAddSavingStatus] = useState(true);
@@ -18,12 +19,7 @@ const AddSavingWindow = () => {
         OpenModal
       </Button>
 
-      {AddSavingStatus && (
-        <div
-          onClick={() => setAddSavingStatus(false)}
-          className="modal-blur"
-        ></div>
-      )}
+      <BlurView status={AddSavingStatus} setStatus={setAddSavingStatus} />
 
       <CSSTransition
         in={AddSavingStatus}

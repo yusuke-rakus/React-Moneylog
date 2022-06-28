@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 import "./components_CSS/ModalWindow.css";
 import { CSSTransition } from "react-transition-group";
 import ModalBox from "./ModalBox";
+import BlurView from "./BlurView";
 
 const ModalWindow = () => {
   const [ModalWindow, setModalWindow] = useState(false);
@@ -17,14 +18,7 @@ const ModalWindow = () => {
         OpenModal
       </Button>
 
-      {ModalWindow && (
-        <div
-          onClick={() => {
-            setModalWindow(false);
-          }}
-          className="modal-blur"
-        ></div>
-      )}
+      <BlurView status={ModalWindow} setStatus={setModalWindow} />
       <CSSTransition
         in={ModalWindow}
         timeout={200}

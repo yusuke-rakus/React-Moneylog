@@ -2,14 +2,6 @@
   display: inline-block;
 }
 
-.modal-blur {
-  position: fixed;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(128, 128, 128, 0.7);
-}
-
 /* モーダルアニメーション定義 */
 .Modal-show-enter {
   opacity: 0;

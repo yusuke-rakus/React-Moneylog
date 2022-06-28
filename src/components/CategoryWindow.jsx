@@ -7,8 +7,13 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SubCategoryWindow from "./SubCategoryWindow.jsx";
 
 const CategoryWindow = (props) => {
-  const { CategoryWindowModal, setCategoryWindowModal, closeModalWindow } =
-    props;
+  const {
+    CategoryWindowModal,
+    setCategoryWindowModal,
+    closeModalWindow,
+    setCategory,
+    setSubCategory,
+  } = props;
 
   const [SubCategoryWindowModal, setSubCategoryWindowModal] = useState(false);
 
@@ -23,7 +28,8 @@ const CategoryWindow = (props) => {
     setCategoryWindowModal(false);
   };
 
-  const openSubCategoryWindow = () => {
+  const openSubCategoryWindow = (category) => {
+    setCategory(category);
     setSubCategoryWindowModal(true);
   };
 
@@ -46,7 +52,11 @@ const CategoryWindow = (props) => {
         <div className="category-items">
           {CategoryList.map((category) => {
             return (
-              <div onClick={openSubCategoryWindow} className="category-item">
+              <div
+                onClick={() => openSubCategoryWindow(category.name)}
+                className="category-item"
+                key={category}
+              >
                 {category.name}{" "}
                 <span>
                   <ChevronRightIcon />
@@ -68,6 +78,7 @@ const CategoryWindow = (props) => {
           SubCategoryWindowModal={SubCategoryWindowModal}
           setSubCategoryWindowModal={setSubCategoryWindowModal}
           closeCategoryWindow={closeCategoryWindow}
+          setSubCategory={setSubCategory}
         />
       </CSSTransition>
     </>

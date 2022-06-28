@@ -28,6 +28,8 @@ const ModalBox = (props) => {
   const openCategoryWindow = () => {
     setCategoryWindowModal(true);
   };
+  const [category, setCategory] = useState("");
+  const [subCategory, setSubCategory] = useState("");
 
   const closeModalWindow = () => {
     setModalWindow(false);
@@ -131,6 +133,11 @@ const ModalBox = (props) => {
         <div className="input-category-box">
           <span className="input-span category-span">カテゴリ</span>
           <div onClick={openCategoryWindow} className="category-box">
+            <span>
+              {category}
+              {category && " / "}
+              {subCategory}
+            </span>
             <span>&gt;</span>
           </div>
         </div>
@@ -160,6 +167,8 @@ const ModalBox = (props) => {
           CategoryWindowModal={CategoryWindowModal}
           setCategoryWindowModal={setCategoryWindowModal}
           closeModalWindow={closeModalWindow}
+          setCategory={setCategory}
+          setSubCategory={setSubCategory}
         />
       </CSSTransition>
     </>

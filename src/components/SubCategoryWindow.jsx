@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./components_CSS/SubCategoryWindow.css";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -11,6 +11,7 @@ const SubCategoryWindow = (props) => {
     SubCategoryWindowModal,
     setSubCategoryWindowModal,
     closeCategoryWindow,
+    setSubCategory,
   } = props;
 
   const SubCategoryList = [
@@ -20,11 +21,14 @@ const SubCategoryWindow = (props) => {
     { name: "保険", value: 4 },
   ];
 
+  const [userSubCategory, setUserSubCategory] = useState("");
+
   const closeSubCategoryWindow = () => {
     setSubCategoryWindowModal(false);
   };
 
-  const backModalWindow = () => {
+  const backModalWindow = (subCategory) => {
+    setSubCategory(subCategory);
     closeSubCategoryWindow();
     closeCategoryWindow();
   };
@@ -34,6 +38,7 @@ const SubCategoryWindow = (props) => {
     if (e.keyCode === 13) {
       enterCount++;
       if (enterCount === 2) {
+        setSubCategory(userSubCategory);
         backModalWindow();
       }
     } else {
@@ -60,7 +65,11 @@ const SubCategoryWindow = (props) => {
         <div className="sub-category-items">
           {SubCategoryList.map((category) => {
             return (
-              <div onClick={backModalWindow} className="sub-category-item">
+              <div
+                onClick={() => backModalWindow(category.name)}
+                className="sub-category-item"
+                key={category}
+              >
                 {category.name}{" "}
                 <span>
                   <ChevronRightIcon />
@@ -69,11 +78,14 @@ const SubCategoryWindow = (props) => {
             );
           })}
           <TextField
-            id="standard-basic"
             label="カテゴリを作成"
             variant="standard"
             fullWidth={true}
             onKeyUp={onEnter}
+            value={userSubCategory}
+            onChange={(e) => {
+              setUserSubCategory(e.target.value);
+            }}
           />
         </div>
       </div>
