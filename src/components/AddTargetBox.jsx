@@ -21,7 +21,7 @@ const AddTargetBox = (props) => {
 
   return (
     <>
-      <div className="modal-window">
+      <div className="mini-modal-window">
         <CloseIcon
           onClick={closeAddTargetStatus}
           style={{ cursor: "pointer", color: "#a9a9a9" }}
