@@ -18,7 +18,6 @@ const App = () => {
         {/* <HouseholdBudgetButton BoxText={"追加"} /> */}
         {/* <ModalWindow /> */}
         {/* <AddSavingWindow /> */}
-        {/* <BlurView status={true} /> */}
         <AddTargetWindow />
       </div>
     </>
