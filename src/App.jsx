@@ -16,9 +16,9 @@ const App = () => {
       <Sidebar />
       <div className="homeArea">
         {/* <HouseholdBudgetButton BoxText={"追加"} /> */}
-        {/* <ModalWindow /> */}
+        <ModalWindow />
         {/* <AddSavingWindow /> */}
-        <AddTargetWindow />
+        {/* <AddTargetWindow /> */}
       </div>
     </>
   );

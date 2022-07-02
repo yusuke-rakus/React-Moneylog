@@ -39,7 +39,8 @@ const SubCategoryWindow = (props) => {
       enterCount++;
       if (enterCount === 2) {
         setSubCategory(userSubCategory);
-        backModalWindow();
+        closeSubCategoryWindow();
+        closeCategoryWindow();
       }
     } else {
       enterCount = 0;
