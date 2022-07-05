@@ -1,6 +1,15 @@
 import React from "react";
 import "./page_CSS/Settings.css";
-import { TextField, Button } from "@mui/material";
+import {
+  TextField,
+  Button,
+  FormControl,
+  IconButton,
+  NativeSelect,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import SwitchBalanceButton from "../components/SwitchBalanceButton";
 
 const Settings = () => {
   return (
@@ -15,7 +24,7 @@ const Settings = () => {
         </div>
 
         <div className="user-settings-buttons">
-          <Button variant="contained" color="inherit" sx={"color:#607d8b"}>
+          <Button variant="contained" color="inherit" sx={"color:#757575"}>
             キャンセル
           </Button>
           <Button variant="contained">登録</Button>
@@ -40,7 +49,7 @@ const Settings = () => {
         </div>
 
         <div className="password-settings-buttons">
-          <Button variant="contained" color="inherit" sx={"color:#607d8b"}>
+          <Button variant="contained" color="inherit" sx={"color:#757575"}>
             キャンセル
           </Button>
           <Button variant="contained">登録</Button>
@@ -51,6 +60,56 @@ const Settings = () => {
       <div className="fixed-settings-box">
         <p>固定費の編集</p>
         <hr />
+        <div className="fixed-list-area">
+          <div className="fixed-data">
+            <div className="category-data">
+              <Button variant="text" sx={"color:#424242"}>
+                住宅/家賃
+              </Button>
+            </div>
+            <div className="transaction-name-data">
+              <span>取引名</span>
+              <TextField id="standard-basic" variant="standard" />
+            </div>
+            <div className="fixed-amount-data">
+              <span>金額</span>
+              <TextField id="standard-basic" variant="standard" />
+            </div>
+            <div className="transfer-date">
+              <span>振替日</span>
+              <FormControl sx={{ minWidth: 60 }} size="small">
+                <NativeSelect>
+                  <option value=""></option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                </NativeSelect>
+              </FormControl>
+              日
+            </div>
+            <div className="switch-balance-area">
+              <SwitchBalanceButton />
+            </div>
+            <div className="delete-area">
+              <IconButton aria-label="delete">
+                <DeleteIcon />
+              </IconButton>
+            </div>
+          </div>
+        </div>
+
+        <div className="add-area">
+          <IconButton>
+            <AddCircleIcon />
+          </IconButton>
+        </div>
+
+        <div className="fixed-settings-buttons">
+          <Button variant="contained" color="inherit" sx={"color:#757575"}>
+            キャンセル
+          </Button>
+          <Button variant="contained">登録</Button>
+        </div>
       </div>
     </div>
   );
