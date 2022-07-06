@@ -1,5 +1,6 @@
 import React from "react";
 import "./page_CSS/Settings.css";
+import "./page_CSS/common.css";
 import {
   TextField,
   Button,
@@ -13,9 +14,9 @@ import SwitchBalanceButton from "../components/SwitchBalanceButton";
 
 const Settings = () => {
   return (
-    <div className="settings">
+    <div className="container">
       {/* ユーザー設定変更 */}
-      <div className="user-settings-box">
+      <div className="container-box">
         <p>ユーザー設定変更</p>
         <hr />
         <div className="email-box">
@@ -32,7 +33,7 @@ const Settings = () => {
       </div>
 
       {/* パスワード変更 */}
-      <div className="password-settings-box">
+      <div className="container-box">
         <p>パスワード変更</p>
         <hr />
         <div className="password-box">
@@ -57,7 +58,7 @@ const Settings = () => {
       </div>
 
       {/* 固定費の編集 */}
-      <div className="fixed-settings-box">
+      <div className="container-box">
         <p>固定費の編集</p>
         <hr />
         <div className="fixed-list-area">
