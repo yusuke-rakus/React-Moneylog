@@ -4,6 +4,7 @@ import "./page_CSS/common.css";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import HouseholdBudgetButton from "../components/HouseholdBudgetButton";
 
 const SavingList = () => {
   return (
@@ -72,6 +73,7 @@ const SavingList = () => {
             </ul>
           </div>
         </div>
+        <HouseholdBudgetButton />
       </div>
     </>
   );
